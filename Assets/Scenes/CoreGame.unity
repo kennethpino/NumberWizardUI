@@ -312,7 +312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ENTER A NUMBER BETWEEN 1 AND 1000:'
+  m_text: 'ENTER A NUMBER FROM 1 TO 999:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d060161d6d64291498569ea11950711b, type: 2}
   m_sharedMaterial: {fileID: 2703476606477788615, guid: d060161d6d64291498569ea11950711b,

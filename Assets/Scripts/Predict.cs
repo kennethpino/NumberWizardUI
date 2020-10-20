@@ -11,8 +11,8 @@ public class Predict : MonoBehaviour
     Button higherButton = default;
     Button lowerButton = default;
 
-    int max = 1001;
-    int min = 0;
+    int max = 999;
+    int min = 1;
     int prediction;
 
     public void Start()
@@ -36,19 +36,26 @@ public class Predict : MonoBehaviour
     {
         if (name.Equals("higher"))
         {
-            min = prediction + 1;
+            min = prediction;
             PredictNextNumber();
         }
         else if (name.Equals("lower"))
         {
-            max = prediction - 1;
+            max = prediction;
             PredictNextNumber();
         }
     }
 
     private void PredictNextNumber()
     {
-        prediction = Random.Range(min, max);
+        int previousPrediction = prediction;
+        prediction = Random.Range(min, max + 1);
+
+        if(previousPrediction == prediction)
+        {
+            prediction = Random.Range(min, max + 1);
+        }
+
         predictionDisplay.text = prediction.ToString();
 
         if(predictionDisplay.text == inputField.text)
