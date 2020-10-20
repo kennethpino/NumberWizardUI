@@ -13,7 +13,7 @@ public class Predict : MonoBehaviour
 
     int max = 1001;
     int min = 0;
-    int prediction = 500;
+    int prediction;
 
     public void Start()
     {
@@ -28,32 +28,27 @@ public class Predict : MonoBehaviour
         continueButton.interactable = false;
         higherButton.interactable = false;
         lowerButton.interactable = false;
+
+        PredictNextNumber();
     }
 
     public void PredictNumber(string name)
     {
         if (name.Equals("higher"))
         {
-            min = prediction;
+            min = prediction + 1;
             PredictNextNumber();
         }
         else if (name.Equals("lower"))
         {
-            max = prediction;
+            max = prediction - 1;
             PredictNextNumber();
         }
     }
 
     private void PredictNextNumber()
     {
-        int oldPrediction = prediction;
         prediction = Random.Range(min, max);
-
-        if (oldPrediction == prediction)
-        {
-            prediction = Random.Range(min, max);
-        }
-
         predictionDisplay.text = prediction.ToString();
 
         if(predictionDisplay.text == inputField.text)
